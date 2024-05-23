@@ -1,4 +1,5 @@
-import numpy as np
+# import numpy as np
+import os
 from django.shortcuts import render, redirect
 from .forms import FuelPredictionForm
 from .models import FuelPrediction
@@ -10,14 +11,13 @@ def index(request):
         form = FuelPredictionForm(request.POST)
         if form.is_valid():
             date = form.cleaned_data['date']
-            fuel_type = form.cleaned_data['fuel_type']
 
             # Load the pre-trained Keras model
-            model_path = ('fuel_price_prediction_model.h5')
+            model_path = os.path.join(os.path.dirname(__file__), 'fuel_price_prediction_model.h5')
             model = load_model(model_path)
 
             # Prepare the input data
-            X = np.array([[date.year, date.month, date.day, fuel_type_to_int(fuel_type)]])
+            X = np.array([[date.year, date.month, date.day]])
             X = StandardScaler().fit_transform(X)
 
             # Make the prediction
@@ -26,23 +26,16 @@ def index(request):
             # Save the prediction to the database
             fuel_prediction = FuelPrediction(
                 date=date,
-                fuel_type=fuel_type,
                 price=0.0,  # Actual price not provided, set to 0
-                predicted_price=predicted_price
+                predicted_price = predicted_price
             )
             fuel_prediction.save()
 
             return redirect('result', pk=fuel_prediction.id)
     else:
         form = FuelPredictionForm()
-
-    return render(request, 'prediction/index.html', {'form': form})
+    return render(request, 'DLPApp/index.html',  {'form': form})
 
 def result(request, pk):
     fuel_prediction = FuelPrediction.objects.get(pk=pk)
-    return render(request, 'prediction/result.html', {'fuel_prediction': fuel_prediction})
-
-def fuel_type_to_int(fuel_type):
-    # Map fuel type to an integer value
-    fuel_types = {'Gasoline': 0, 'Diesel': 1, 'LPG': 2}
-    return fuel_types.get(fuel_type, 0)
+    return render(request, 'DLPApp/result.html', {'fuel_prediction': fuel_prediction})
