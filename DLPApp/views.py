@@ -1,4 +1,4 @@
-# import numpy as np
+import numpy as np
 import os
 from django.shortcuts import render, redirect
 from .forms import FuelPredictionForm
