@@ -3,6 +3,5 @@
 {% block content %}
   <h1>Fuel Price Prediction Result</h1>
   <p>Date: {{ fuel_prediction.date }}</p>
-  <p>Fuel Type: {{ fuel_prediction.fuel_type }}</p>
   <p>Predicted Price: ${{ fuel_prediction.predicted_price|floatformat:2 }}</p>
 {% endblock %}
