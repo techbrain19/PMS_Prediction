@@ -1,7 +1,17 @@
 {% extends 'DLPApp/base.html' %}
+{% block header%}Fuel Price Prediction Result{% endblock %}
 
 {% block content %}
-  <h1>Fuel Price Prediction Result</h1>
-  <p>Date: {{ fuel_prediction.date }}</p>
-  <p>Predicted Price: #{{ fuel_prediction.predicted_price|floatformat:2 }}</p>
+<section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="form-container container my-5 p-4 border rounded-3 text-white-50 fw-bold">
+            <p>Date: {{ fuel_prediction.date }}</p>
+            <p>Predicted Price: #{{ fuel_prediction.predicted_price|floatformat:2 }}</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

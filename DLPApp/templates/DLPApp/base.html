@@ -2,33 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>fuel Price Prediction</title>
+    <title>Fuel Price Prediction</title>
     <!-- Meta -->
     <meta charset="utf-8">
-
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="shortcut icon" href="{% static 'deeplearning/images/favicon.ico' %}">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
-    <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="{% static 'deeplearning/css/theme.css' %}">
-
 </head>
 <body>
-    <header class="header text-center">
-	    <h1 class="blog-name pt-lg-4 mb-0"><a href="{% url 'index'%}">Fuel Price Prediction</a></h1>
+    <header class="header text-center gradient-custom">
+	    <h1 class="pt-lg-4 mb-0"><a href="{% url 'index'%}" class=" text-white-50 fw-bold">{% block header %}Fuel Price Prediction{% endblock %}</a></h1>
     </header>
     <div class="main-wrapper">
       {% block content %}
 	  
-	    {% endblock %}
-      <footer class="footer text-center py-2 theme-bg-dark">
-                <small class="copyright">Developed by <a href="https://www.linkedin.com/in/Techbrain/" target="_blank">Techbrain</a> for deep learning model deployment <i class="fas fa-heart" style="color: #fb866a;"></i> for Finance</small>
-	    </footer>
+	    {% endblock %}      
     </div><!--//main-wrapper-->
     <!-- Javascript -->
-    <link rel="stylesheet" href="{% static 'deeplearning/plugins/jquery-3.3.1.min.js' %}">
-    <link rel="stylesheet" href="{% static 'deeplearning/plugins/popper.min.js' %}">
-    <link rel="stylesheet" href="{% static 'deeplearning/plugins/bootstrap/js/bootstrap.min.js' %}">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
