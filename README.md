@@ -32,6 +32,16 @@ install the dependencies:
 pip install -r requirements.txt
 ```
 
+Make migration to create the model table in database
+```sh
+python manage.py makemigrations
+```
+
+Then your have to migrate it
+```sh
+python manage.py migrate
+```
+
 Run the server with
 
 ```sh
