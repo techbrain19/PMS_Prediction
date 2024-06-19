@@ -9,6 +9,7 @@
           <div class="form-container container my-5 p-4 border rounded-3 text-white-50 fw-bold">
             <p>Date: {{ fuel_prediction.date }}</p>
             <p>Predicted Price: #{{ fuel_prediction.predicted_price|floatformat:2 }}</p>
+            <button onclick="window.history.back()">Back</button>
           </div>
       </div>
     </div>
